@@ -19,5 +19,5 @@ docker run --detach \
 ## gitlab
 节点创几个文件夹，然后跑
 ```
-docker-copose -f gitlab.yaml
+docker-compose -f gitlab.yaml
 ```
