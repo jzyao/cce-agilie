@@ -20,4 +20,8 @@ docker run --detach \
 节点创几个文件夹，然后跑
 ```
 docker-compose -f gitlab.yaml
+docker exec –it gitlab /bin/bash
+vim /etc/gitlab/gitlab.rb
+修改  "external_url ‘http://114.115.139.45’ ; gitlab_rails['gitlab_shell_ssh_port'] = 2022"
+gitlab-ctl reconfigure
 ```
