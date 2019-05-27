@@ -6,8 +6,6 @@ services:
       - "8081:80"
       - "7443:443"
       - "2022:22"
-    environment:
-      OMNIBUS_GITLAB_CONFIG: "external_url 114.115.139.45 ; gitlab_rails['gitlab_shell_ssh_port'] = 2022"  
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /srv/gitlab/config:/etc/gitlab
