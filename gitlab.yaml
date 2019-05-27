@@ -1,0 +1,29 @@
+version: "3.3"
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    ports:
+      - 80:80
+      - 443:443
+      - 2022:22
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /srv/gitlab/config:/etc/gitlab
+      - /srv/gitlab/logs:/var/log/gitlab
+      - /srv/gitlab/data:/var/opt/gitlab
+    restart: always
+    networks:
+      gitlab:
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /srv/gitlab-runner/config:/etc/gitlab-runner
+      - /root/.docker:/root/.docker
+    restart: always
+    networks:
+      gitlab:
+
+networks:
+  gitlab:
